@@ -1,0 +1,6 @@
+# Ignore Data Folders
+/test
+/train
+
+# Ignore Labels / Submissions
+*.csv
