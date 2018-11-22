@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+from skimage.io import imread
 
 def train_model(train_dir, train_labels):
     lst = os.listdir(train_dir)
@@ -10,7 +11,8 @@ def train_model(train_dir, train_labels):
     i=0
     for filename in lst:
         breed = train_labels.iloc[i][1]
-        # Train Model on Image 'filename' and label 'breed'
+        im = imread(train_dir+"/"+filename) #  Width x Height x 3 (colors) array
+        # Train model using image 'im' and label 'breed'
         i=i+1
 
 train_labels = pd.read_csv("labels.csv")
